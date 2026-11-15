@@ -36,7 +36,7 @@ footer{text-align:center;color:var(--mute);font-size:.8rem;padding:20px 16px}
 </style></head><body>
 <header><div class="wrap"><div class="k">EL Publishing · Many Voices · One Storm</div>
 <h1 data-i="t">Bilingual Resources, K-12: Spanish, Arabic and more</h1>
-<p data-i="sub">English, math, history and science for elementary, middle and high school. Each entry says exactly what is in Spanish, Arabic, Vietnamese, Chinese or Haitian Creole.</p><div class="share"><button class="main" id="shareBtn" onclick="doShare()">↗ <span data-i="share">Share this list</span></button><button class="alt" onclick="copyLink()">🔗 <span data-i="copy">Copy link</span></button><a class="alt" id="fb" target="_blank" rel="noopener">Facebook</a><a class="alt" id="mail" data-i="email">Email</a></div></div></header>
+<p data-i="sub">English, math, history and science for elementary, middle and high school. Each entry says exactly what is in Spanish, Arabic, Vietnamese, Chinese or Haitian Creole.</p><div class="share"><button class="main" id="shareBtn" onclick="doShare()">↗ <span data-i="share">Share this list</span></button><button class="alt" onclick="copyLink()">🔗 <span data-i="copy">Copy link</span></button><a class="alt" id="mail" data-i="email">Email</a></div></div></header>
 <div class="bar"><div class="wrap">
 <div class="row" id="tabs"></div><div class="row" id="chips"></div>
 <div class="row"><input type="search" id="q" aria-label="Search"><div class="lang"><button id="en" class="on" onclick="setL('en')">EN</button><button id="es" onclick="setL('es')">ES</button></div></div>
@@ -72,7 +72,6 @@ function toast(m){const e=document.getElementById('toast');e.textContent=m;e.cla
 function copyLink(){const ok=()=>toast(T[L].copied);const fb=()=>{const i=document.createElement('input');i.value=URL0;document.body.appendChild(i);i.select();try{document.execCommand('copy');ok()}catch(e){toast(URL0)}i.remove()};
  try{navigator.clipboard.writeText(URL0).then(ok).catch(fb)}catch(e){fb()}}
 function doShare(){const t=T[L];if(navigator.share){navigator.share({title:t.stitle,text:t.stext,url:URL0}).catch(()=>{})}else copyLink()}
-function shareLinks(){const t=T[L];document.getElementById('fb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(URL0);
- document.getElementById('mail').href='mailto:?subject='+encodeURIComponent(t.stitle)+'&body='+encodeURIComponent(t.stext+'\n\n'+URL0)}
+function shareLinks(){const t=T[L];document.getElementById('mail').href='mailto:?subject='+encodeURIComponent(t.stitle)+'&body='+encodeURIComponent(t.stext+'\n\n'+URL0)}
 document.getElementById('q').addEventListener('input',render);render();shareLinks();
 </script></body></html>
